@@ -1,115 +1,72 @@
-# Hire-Hub — Two Role Job Portal System
+# 🚀 Hire-Hub — Two-Role Job Portal System
 
-Hire-Hub is a modern full-stack web application designed to connect job seekers (**Applicants**) with hiring managers (**Recruiters**). Built using the MERN stack (MongoDB, Express.js, React.js, Node.js) with JWT authentication and role-based authorization.
+Hire-Hub is a full-stack job portal designed to connect **Applicants** with **Recruiters** through a role-based hiring platform. The system provides separate workflows for candidates and recruiters, allowing applicants to discover opportunities and track their applications while recruiters can create job postings, review candidates, and manage the hiring process.
 
----
-
-## 🚀 How to Run the Project
-
-### Prerequisites
-- [Node.js](https://nodejs.org/) (v18+ recommended)
-- `npm` (packaged with Node.js)
+The application is built using the **MERN stack — MongoDB, Express.js, React.js, and Node.js** with **JWT-based authentication and role-based authorization**.
 
 ---
 
-### 1️⃣ Start the Backend API Server
+## 🎯 Project Goal
 
-Open a terminal and execute:
+The main goal of Hire-Hub is to simplify the recruitment workflow by bringing job discovery, applications, candidate profiles, and recruiter management into a single platform.
 
-```bash
-cd backend
-npm install
-npm start
-```
-
-- **Server URL**: `http://localhost:5000`
-- **Database**: Automatically connects to local MongoDB or initializes an in-memory database (`mongodb-memory-server`) with demo seed data!
+Instead of handling recruitment activities manually, the system provides separate dashboards and workflows for applicants and recruiters.
 
 ---
 
-### 2️⃣ Start the Frontend React App
+## 👥 Two-Role Architecture
 
-Open a second terminal window and execute:
+### 👨‍💼 Applicant
 
-```bash
-cd frontend
-npm install
-npm run dev
-```
+Applicants can:
 
-- **Web App URL**: `http://localhost:5173`
+- Create an account and securely log in
+- Search and filter available jobs
+- View complete job descriptions
+- Apply for jobs
+- Submit resume links and cover letters
+- Track application progress
+- Manage skills and work experience
+- Maintain education and portfolio information
+- View recruiter feedback and hiring notes
 
----
+### 🏢 Recruiter
 
-## 🔐 Demo Credentials (Auto-Populated)
+Recruiters can:
 
-You can instantly log in using pre-seeded test accounts or click the **"Quick Demo Credentials"** buttons on the login page:
-
-| User Role | Email | Password | Features |
-| :--- | :--- | :--- | :--- |
-| **Applicant** | `applicant@gmail.com` | `123456` | Browse jobs, apply with resume & pitch, track application status, edit profile & skills |
-| **Recruiter** | `recruiter@techcorp.com` | `123456` | Post jobs, edit/delete listings, review applicants, update candidate hiring status & notes |
-
----
-
-## ✨ Features Breakdown
-
-### 💼 Applicant Features
-1. **Register & Log In**: Role-selected authentication with secure JWT tokens.
-2. **Search & Filter Jobs**: Filter listings by title, skills, keyword, location, job type (Full-time, Remote, Contract, etc.), and experience level.
-3. **Job Details & Apply**: View full descriptions, required skills pills, salary ranges, and submit applications with resume URLs and cover letters.
-4. **Application Tracking**: Monitor real-time status updates (`Applied`, `Reviewing`, `Shortlisted`, `Rejected`, `Accepted`) and view recruiter notes.
-5. **Candidate Profile**: Manage skills, work experience history, education details, and portfolio links.
-
-### 🏢 Recruiter Features
-1. **Recruiter Portal**: Overview dashboard displaying posted job counts and total applicant submissions.
-2. **Post & Edit Jobs**: Create detailed job listings with company info, salary ranges, deadlines, required skills, and job types.
-3. **Applicant Review**: Accordion view for each posting to review candidate profiles, skills, cover notes, and attached resumes.
-4. **Hiring Workflow**: Single-click status updates (`Reviewing`, `Shortlisted`, `Accepted`, `Rejected`) with feedback notes.
-5. **Job Lifecycle**: Edit active job details or delete postings along with associated application records.
+- Create and manage recruiter accounts
+- View recruitment statistics
+- Create new job postings
+- Edit existing job postings
+- Delete job postings
+- View applicants for individual jobs
+- Review candidate profiles and skills
+- View submitted resumes
+- Update candidate hiring status
+- Add feedback/notes during the hiring process
 
 ---
 
-## 📁 Project Directory Structure
+## 🔄 Application Workflow
 
 ```text
-major-hire-hub/
-├── backend/
-│   ├── config/
-│   │   └── db.js                 # MongoDB connection & memory server fallback
-│   ├── controllers/
-│   │   ├── applicationController.js # Application logic
-│   │   ├── authController.js        # Authentication & profile management
-│   │   └── jobController.js         # Job CRUD operations
-│   ├── middleware/
-│   │   ├── authMiddleware.js        # JWT protection middleware
-│   │   ├── errorMiddleware.js       # Express error handler
-│   │   └── roleMiddleware.js        # Role-based authorization guard
-│   ├── models/
-│   │   ├── Application.js           # Schema for job applications
-│   │   ├── Job.js                   # Schema for job postings
-│   │   └── User.js                  # Schema for users & roles
-│   ├── routes/
-│   │   ├── applicationRoutes.js
-│   │   ├── authRoutes.js
-│   │   └── jobRoutes.js
-│   ├── utils/
-│   │   └── seeder.js                # Auto-seeder for demo users & postings
-│   ├── .env                         # Environment variables
-│   ├── package.json
-│   └── server.js                    # Express app entrypoint
-│
-├── frontend/
-│   ├── src/
-│   │   ├── components/              # Navbar, Footer, JobCard, Modals, Toast
-│   │   ├── context/                 # AuthContext (state, login, register, profile)
-│   │   ├── pages/                   # Home, JobDetails, Dashboards, Post/Edit Job, Profile
-│   │   ├── services/                # Axios API client
-│   │   ├── styles/                  # Glassmorphism dark mode CSS rules
-│   │   ├── App.jsx                  # React Router configuration
-│   │   └── main.jsx
-│   ├── package.json
-│   └── vite.config.js
-│
-└── README.md
-```
+Applicant
+   │
+   ├── Register / Login
+   │
+   ├── Search Jobs
+   │
+   ├── View Job Details
+   │
+   ├── Submit Application
+   │
+   └── Track Application
+           │
+           ▼
+       Recruiter
+           │
+           ├── Create Job
+           ├── View Applicants
+           ├── Review Candidate
+           ├── Update Status
+           └── Add Hiring Notes
